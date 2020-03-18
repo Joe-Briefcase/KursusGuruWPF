@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using KursusGuru.Data_Layer;
 
 namespace KursusGuru
 {
@@ -22,6 +23,22 @@ namespace KursusGuru
         public DebugWindow()
         {
             InitializeComponent();
+        }
+
+        /*
+         * Tester data laget ved at gemme og hente en bruger
+         * og vise dens brugernavn.
+         */
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameBox.Text;
+            string passwork = PasswordBox.Password;
+            User user = new User();
+            user.userName = "ABC";
+            user.id = 0;
+            DataController.SaveUserData(user);
+            User user2 = DataController.LoadUserData(0);
+            DebugTextBox.Text = user2.userName;
         }
     }
 }

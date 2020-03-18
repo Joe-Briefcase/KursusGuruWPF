@@ -9,7 +9,7 @@
     <Grid>
         <TextBox x:Name="UsernameBox" HorizontalAlignment="Left" Height="23" Margin="31,59,0,0" TextWrapping="Wrap" Text="Brugernavn" VerticalAlignment="Top" Width="120"/>
         <PasswordBox x:Name="PasswordBox" HorizontalAlignment="Left" Margin="31,104,0,0" VerticalAlignment="Top" Width="120" Height="23" Password="Kodeord"/>
-        <Button x:Name="LoginButton" Content="Log ind" HorizontalAlignment="Left" Margin="31,149,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="LoginButton" Content="Log ind" HorizontalAlignment="Left" Margin="31,149,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
         <TextBlock x:Name="DebugTextBox" HorizontalAlignment="Left" Margin="196,59,0,0" TextWrapping="Wrap" Text="Data" VerticalAlignment="Top" Height="239" Width="234"/>
         <TextBlock x:Name="DebugTitle" HorizontalAlignment="Left" Margin="31,10,0,0" TextWrapping="Wrap" Text="Debug" VerticalAlignment="Top" Width="120" Height="26" FontSize="18"/>
 

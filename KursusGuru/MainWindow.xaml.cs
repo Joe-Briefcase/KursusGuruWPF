@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursusGuru.Data_Layer;
+using KursusGuru.Logic_Layer;
 
 namespace KursusGuru
 {
@@ -23,6 +25,13 @@ namespace KursusGuru
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var debugWindow = new DebugWindow();
+            debugWindow.Show();
+            this.Close();
         }
     }
 }

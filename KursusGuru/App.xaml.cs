@@ -5,6 +5,8 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using KursusGuru.Data_Layer;
+using KursusGuru.Logic_Layer;
 
 namespace KursusGuru
 {
@@ -13,5 +15,9 @@ namespace KursusGuru
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+        }
     }
 }
