@@ -11,8 +11,8 @@ namespace KursusGuru.Logic_Layer
         /*
          * Selenium logic.
          */
-        void SeleniumLoginInside();
-        void SeleniumLoginLearn();
-        void SeleniumLoginDiplomPortal();
+        void SeleniumLoginInside(String username, String password);
+        void SeleniumLoginLearn(String username, String password);
+        void SeleniumLoginDiplomPortal(String username, String password);
     }
 }
