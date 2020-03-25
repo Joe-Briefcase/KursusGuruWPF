@@ -20,6 +20,7 @@ namespace KursusGuru
     /// </summary>
     public partial class DebugWindow : Window
     {
+        SeleniumLogin selenium;
         public DebugWindow()
         {
             InitializeComponent();
@@ -48,8 +49,17 @@ namespace KursusGuru
             User user = new User();
             user.userName = username;
             user.id = Int32.Parse(username.Remove(0, 1));
-            SeleniumLogin selenium = new SeleniumLogin();
+            selenium = new SeleniumLogin();
             selenium.SeleniumLoginInside(username, password);
+        }
+
+        private void CheckCourses_Click(object sender, RoutedEventArgs e)
+        {
+            string str = "";
+            for (int i = 0; i < selenium.courses.Count; i++) {
+                str = str + selenium.courses[i] + "\n";
+            }
+            DebugTextBox.Text = str;
         }
     }
 }
