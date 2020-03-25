@@ -12,6 +12,7 @@
         <Button x:Name="LoginButton" Content="Log ind" HorizontalAlignment="Left" Margin="31,149,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
         <TextBlock x:Name="DebugTextBox" HorizontalAlignment="Left" Margin="196,59,0,0" TextWrapping="Wrap" Text="Data" VerticalAlignment="Top" Height="239" Width="234"/>
         <TextBlock x:Name="DebugTitle" HorizontalAlignment="Left" Margin="31,10,0,0" TextWrapping="Wrap" Text="Debug" VerticalAlignment="Top" Width="120" Height="26" FontSize="18"/>
+        <Button x:Name="LoginButtonOnline" Content="Log ind (Online)" HorizontalAlignment="Left" Margin="31,184,0,0" VerticalAlignment="Top" Width="105" Click="LoginButtonOnline_Click"/>
 
     </Grid>
 </Window>
