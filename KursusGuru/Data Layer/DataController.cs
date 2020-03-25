@@ -8,8 +8,11 @@ namespace KursusGuru.Data_Layer
 {
     static class DataController
     {
-        // Liste med brugere.
-        private static List<User> userList = new List<User>();
+        /* 
+         * Liste med brugere.
+         * I et dictionary indekseres brugeren vha. studienummer (user id).
+         */
+        private static Dictionary<int, User> userList = new Dictionary<int, User>();
 
         /*
          * Henter bruger ud fra deres studienummer.

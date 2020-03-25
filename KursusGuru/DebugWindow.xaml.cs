@@ -40,5 +40,16 @@ namespace KursusGuru
             User user2 = DataController.LoadUserData(0);
             DebugTextBox.Text = user2.userName;
         }
+
+        private void LoginButtonOnline_Click(object sender, RoutedEventArgs e)
+        {
+            string username = UsernameBox.Text;
+            string password = PasswordBox.Password;
+            User user = new User();
+            user.userName = username;
+            user.id = Int32.Parse(username.Remove(0, 1));
+            SeleniumLogin selenium = new SeleniumLogin();
+            selenium.SeleniumLoginInside(username, password);
+        }
     }
 }
