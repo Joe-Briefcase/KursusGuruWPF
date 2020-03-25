@@ -24,5 +24,15 @@ namespace KursusGuru
         {
             InitializeComponent();
         }
+
+        private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void ButtonPopUpLogou_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
     }
 }
