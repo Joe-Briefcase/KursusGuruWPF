@@ -9,14 +9,14 @@ namespace KursusGuru.Data_Layer
     static class DataController
     {
         // Liste med brugere.
-        private static List<User> userList = new List<User>();
+        private static Dictionary<int, User> userList = new Dictionary<int, User>();
 
         /*
          * Henter bruger ud fra deres studienummer.
          */
         public static User LoadUserData(int id)
         {
-            User user = userList.ElementAt(id);
+            User user = userList[id];
             return user;
         }
 
@@ -25,7 +25,7 @@ namespace KursusGuru.Data_Layer
          */
         public static void SaveUserData(User user)
         {
-            userList.Add(user);
+            userList.Add(user.id, user);
         }
     }
 }

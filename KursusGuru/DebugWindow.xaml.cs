@@ -32,13 +32,13 @@ namespace KursusGuru
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = UsernameBox.Text;
-            string passwork = PasswordBox.Password;
+            string password = PasswordBox.Password;
             User user = new User();
-            user.userName = "ABC";
-            user.id = 0;
+            user.userName = username;
+            user.id = Int32.Parse(username.Remove(0, 1));
             DataController.SaveUserData(user);
-            User user2 = DataController.LoadUserData(0);
-            DebugTextBox.Text = user2.userName;
+            User user2 = DataController.LoadUserData(user.id);
+            DebugTextBox.Text = user2.userName + "\n" + user2.id;
         }
     }
 }
