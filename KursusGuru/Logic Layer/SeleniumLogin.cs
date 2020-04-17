@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using KursusGuru.Logic_Layer;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Chrome;
 using System.Collections.ObjectModel;
 
