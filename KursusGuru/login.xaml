@@ -31,12 +31,12 @@
         <Grid Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,100">
             <TextBlock Text="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="20" Foreground="Gray" FontSize="18"/>
             <StackPanel VerticalAlignment="Center" Margin="5">
-                <TextBox materialDesign:HintAssist.Hint="username" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FontFamily="Champagne &amp; Limousines" FontSize="18" Background="{x:Null}" Margin="0,10"/>
-                <PasswordBox materialDesign:HintAssist.Hint="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  FontFamily="Champagne &amp; Limousines" FontSize="18" Background="{x:Null}" Margin="0,10"/>
+                <TextBox Name="StudentNumber" materialDesign:HintAssist.Hint="username" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FontFamily="Champagne &amp; Limousines" FontSize="18" Background="{x:Null}" Margin="0,10"/>
+                <PasswordBox Name="StudentPassword" materialDesign:HintAssist.Hint="password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"  FontFamily="Champagne &amp; Limousines" FontSize="18" Background="{x:Null}" Margin="0,10"/>
 
             </StackPanel>
         </Grid>
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,110" Content="LOGIN" Background="#FFF20F00" BorderBrush="#FFF20F00"/>
+        <Button Name="LoginButton" Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,110" Content="LOGIN" Background="#FFF20F00" BorderBrush="#FFF20F00" Click="LoginButton_Click"/>
 
     </Grid>
 </Page>

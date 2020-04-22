@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using KursusGuru.Data_Layer;
 using KursusGuru.Logic_Layer;
+using KursusGuru.Properties;
 
 namespace KursusGuru
 {
@@ -25,6 +28,11 @@ namespace KursusGuru
         public MainWindow()
         {
             InitializeComponent();
+
+            // Subscribe til events
+            Settings.Default.PropertyChanged += new System.ComponentModel.PropertyChangedEventHandler(WhenUserLogsInEvent);
+            
+            // Tjekker om brugeren er logget ind og hvis de er gemmes login skærmen
             if (Properties.Settings.Default.IsUserLoggedIn)
             {
                 loginFrame.Visibility = Visibility.Hidden;
@@ -32,6 +40,20 @@ namespace KursusGuru
             {
                 loginFrame.Visibility = Visibility.Visible;
             }
+
+            // User dictionary initialiseres med nogle brugere
+            User user1 = new User();
+            user1.userName = "Teddy Roosevelt";
+            user1.id = 183939;
+            User user2 = new User();
+            user2.userName = "Woodrow Wilson";
+            user2.id = 191747;
+            User user3 = new User();
+            user3.userName = "Abraham Lincoln";
+            user3.id = 182828;
+            DataController.SaveUserData(user1);
+            DataController.SaveUserData(user2);
+            DataController.SaveUserData(user3);
         }
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
@@ -48,16 +70,27 @@ namespace KursusGuru
         {
             ButtonOpenMenu.Visibility = Visibility.Collapsed;
             ButtonCloseMenu.Visibility = Visibility.Visible;
-
-
         }
 
         private void ButtonCloseMenu_Click(object sender, RoutedEventArgs e)
         {
             ButtonOpenMenu.Visibility = Visibility.Visible;
             ButtonCloseMenu.Visibility = Visibility.Collapsed;
+        }
 
+        // Når brugeren logger ind gemmes login skærmen
+        private void WhenUserLogsInEvent(object sender, PropertyChangedEventArgs e)
+        {
+            if (Properties.Settings.Default.IsUserLoggedIn)
+            {
+                loginFrame.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                loginFrame.Visibility = Visibility.Visible;
+            }
 
+            UserId.Text = LogicController.CurrentUser().userName;
         }
     }
 }

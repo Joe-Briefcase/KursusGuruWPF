@@ -42,7 +42,7 @@
 
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <TextBlock Text="s172943" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
+                <TextBlock Name="UserId"  Text="s172943" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
 
                 <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignCentres" StaysOpen="False" Foreground="White">
                     <StackPanel Width="150">

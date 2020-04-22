@@ -7,31 +7,44 @@ using System.Threading.Tasks;
 
 namespace KursusGuru.Logic_Layer
 {
-    class LogicController : ILogicController
+    static class LogicController
     {
-        public object GetBookData(User user)
+        private static User currentUser;
+
+        public static object GetBookData(User user)
         {
             throw new NotImplementedException();
         }
 
-        public object GetCalenderData(User user)
+        public static object GetCalenderData(User user)
         {
             throw new NotImplementedException();
         }
 
-        public object GetCourseData(User user)
+        public static object GetCourseData(User user)
         {
             throw new NotImplementedException();
         }
 
-        public User GetUserData(int id)
+        public static User GetUserData(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void SaveUser(User user)
+        public static void SaveUser(User user)
         {
             throw new NotImplementedException();
+        }
+
+        // Hjælpe metode til hurtigt at hente data fra den bruger der allerede er logget ind
+        public static User CurrentUser()
+        {
+            return currentUser;
+        }
+
+        public static void SetCurrentUser(User user)
+        {
+            currentUser = user;
         }
     }
 }

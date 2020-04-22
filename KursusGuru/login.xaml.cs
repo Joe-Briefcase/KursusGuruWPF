@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursusGuru.Data_Layer;
+using KursusGuru.Logic_Layer;
 
 namespace KursusGuru
 {
@@ -23,6 +25,17 @@ namespace KursusGuru
         public login()
         {
             InitializeComponent();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            string username = StudentNumber.Text;
+            string password = StudentPassword.Password;
+            int id = Int32.Parse(username.Remove(0, 1));
+            User user = DataController.LoadUserData(id);
+            LogicController.SetCurrentUser(user);
+            Properties.Settings.Default.IsUserLoggedIn = true;
+            Console.WriteLine("Test");
         }
     }
 }
