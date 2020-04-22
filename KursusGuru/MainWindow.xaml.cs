@@ -25,6 +25,13 @@ namespace KursusGuru
         public MainWindow()
         {
             InitializeComponent();
+            if (Properties.Settings.Default.IsUserLoggedIn)
+            {
+                loginFrame.Visibility = Visibility.Hidden;
+            } else
+            {
+                loginFrame.Visibility = Visibility.Visible;
+            }
         }
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)

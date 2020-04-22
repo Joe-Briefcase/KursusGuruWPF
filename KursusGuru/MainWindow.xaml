@@ -106,5 +106,6 @@
                 </ListView>
             </StackPanel>
         </Grid>
+        <Frame Name="loginFrame" Source="login.xaml" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>
