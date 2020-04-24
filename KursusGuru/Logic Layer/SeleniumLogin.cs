@@ -44,13 +44,16 @@ public static class SeleniumLogin
         //Sætter Edgedriveren til Learn.
         _driver.Url = dtuLearn;
 
-        login(username, password, _driver);
+        // Tryk på knappen for studerende
+        _element = _driver.FindElement(By.XPath("/html/body/div[2]/div[2]/div[1]/div[2]/div/form/div[1]/div[3]/div/span"));
+        _element.Click();
+
+        //login(username, password, _driver);
 
         //Lægger alle kurser fra Learn ind i en collection.
         ReadOnlyCollection<IWebElement> collection_course;
         ReadOnlyCollection<IWebElement> collection_ann;
         collection_course = _driver.FindElements(By.XPath("/html/body/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div[1]/div[2]/div/d2l-my-courses//d2l-my-courses-container//d2l-tabs/d2l-tab-panel/d2l-my-courses-content//div[2]/div/d2l-enrollment-card//d2l-card//div/a"));
-        
         for (int i = 0; i < collection_course.Count; i++){
             collection_course[i].Click();
             
@@ -70,6 +73,7 @@ public static class SeleniumLogin
             {
                 announcements[i][index] = collection_ann[j].Text;
                 index++;
+                Console.WriteLine("Test");
             }
         }
     }
