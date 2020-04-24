@@ -34,8 +34,11 @@ namespace KursusGuru
             int id = Int32.Parse(username.Remove(0, 1));
             User user = DataController.LoadUserData(id);
             LogicController.SetCurrentUser(user);
+
+            // Sætter password i CurrentUser så det kun eksistere i dén instance.
+            LogicController.CurrentUser().password = password;
+
             Properties.Settings.Default.IsUserLoggedIn = true;
-            Console.WriteLine("Test");
         }
     }
 }

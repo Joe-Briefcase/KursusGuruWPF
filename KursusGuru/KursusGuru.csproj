@@ -70,10 +70,6 @@
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
-    <Page Include="DebugWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -85,9 +81,6 @@
     <Compile Include="Data Layer\DataController.cs" />
     <Compile Include="Data Layer\IDataController.cs" />
     <Compile Include="Data Layer\User.cs" />
-    <Compile Include="DebugWindow.xaml.cs">
-      <DependentUpon>DebugWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Logic Layer\ILogicController.cs" />
     <Compile Include="Logic Layer\ISelenium.cs" />
     <Compile Include="Logic Layer\LogicController.cs" />

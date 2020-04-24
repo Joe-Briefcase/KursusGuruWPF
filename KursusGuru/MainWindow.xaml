@@ -90,7 +90,7 @@
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60"  >
+                    <ListViewItem x:Name="UpdateButton" Height="60" Selected="ListViewItem_Selected"  >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Schedule" Margin="5" Width="25" Height="25" VerticalAlignment="Center"/>
                             <TextBlock Text="skema"  VerticalAlignment="Center" Margin="20 10"></TextBlock>

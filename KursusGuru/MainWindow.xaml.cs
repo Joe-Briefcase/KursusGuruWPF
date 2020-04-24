@@ -51,9 +51,13 @@ namespace KursusGuru
             User user3 = new User();
             user3.userName = "Abraham Lincoln";
             user3.id = 182828;
+            User userAdmin = new User();
+            userAdmin.userName = "Ted Bundy";
+            userAdmin.id = 185143;
             DataController.SaveUserData(user1);
             DataController.SaveUserData(user2);
             DataController.SaveUserData(user3);
+            DataController.SaveUserData(userAdmin);
         }
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
@@ -91,6 +95,12 @@ namespace KursusGuru
             }
 
             UserId.Text = LogicController.CurrentUser().userName;
+        }
+
+        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        {
+            SeleniumLogin.SeleniumLoginInside(LogicController.CurrentUser().userName, LogicController.CurrentUser().password);
+            Console.WriteLine(SeleniumLogin.courses.ToString());
         }
     }
 }
