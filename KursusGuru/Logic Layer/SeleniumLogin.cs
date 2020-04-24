@@ -94,8 +94,8 @@ public static class SeleniumLogin
      private static void login(String username, String password, IWebDriver _driver)
     {
         //Klikker på login knappen inde på diplomportalen.
-        _element = _driver.FindElement(By.XPath("/html/body/div/div/div[2]/div/div/button"));
-        _element.Click();
+        //_element = _driver.FindElement(By.XPath("/html/body/div/div/div[2]/div/div/button"));
+        //_element.Click();
 
         //Sætter element objektet til et element med den givne XPath, i dette tilfælde er det username på dtuInside
         _element = _driver.FindElement(

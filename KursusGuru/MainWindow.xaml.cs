@@ -99,8 +99,11 @@ namespace KursusGuru
 
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
-            SeleniumLogin.SeleniumLoginInside(LogicController.CurrentUser().userName, LogicController.CurrentUser().password);
-            Console.WriteLine(SeleniumLogin.courses.ToString());
+            SeleniumLogin.SeleniumLoginInside("s" + LogicController.CurrentUser().id, LogicController.CurrentUser().password);
+            foreach (string course in SeleniumLogin.courses)
+            {
+                Console.WriteLine(course);
+            }
         }
     }
 }
