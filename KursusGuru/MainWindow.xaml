@@ -69,10 +69,10 @@
             <StackPanel>
                 <Grid Height="150" Background="White"  >
                     <Button x:Name="ButtonCloseMenu" Width="60" Height="60"  VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Visibility="Collapsed" Click="ButtonCloseMenu_Click">
-                        <materialDesign:PackIcon Foreground="#FF005BCA" Kind="ArrowLeft" Height="25" Width="25"/>
+                        <materialDesign:PackIcon Foreground="#9e0000" Kind="ArrowLeft" Height="25" Width="25"/>
                     </Button>
                     <Button x:Name="ButtonOpenMenu" Width="60" Height="60"  VerticalAlignment="Top" HorizontalAlignment="Right" Background="{x:Null}" BorderBrush="{x:Null}" Click="ButtonOpenMenu_Click">
-                        <materialDesign:PackIcon Foreground="#FF005BCA" Kind="Menu" Height="25" Width="25"/>
+                        <materialDesign:PackIcon Foreground="#9e0000" Kind="Menu" Height="25" Width="25"/>
                     </Button>
 
                 </Grid>
