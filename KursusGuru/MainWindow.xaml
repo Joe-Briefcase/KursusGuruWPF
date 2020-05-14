@@ -33,9 +33,9 @@
             <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
         </EventTrigger>
     </Window.Triggers>
-    
-    
-    <Grid Background="#FFEDFAFF">
+
+
+    <Grid Background="#F8F0EE">
 
         <Grid Height="60" VerticalAlignment="Top" Background="#9e0000" >
 
