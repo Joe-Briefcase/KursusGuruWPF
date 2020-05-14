@@ -37,7 +37,7 @@
     
     <Grid Background="#FFEDFAFF">
 
-        <Grid Height="60" VerticalAlignment="Top" Background="#FF00A8E8" >
+        <Grid Height="60" VerticalAlignment="Top" Background="#9e0000" >
 
             <TextBlock Text="KURSUS GURU" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="White"/>
 
@@ -64,7 +64,7 @@
 
         </Grid>
 
-        <Grid x:Name="GridMenu"  Width="50" HorizontalAlignment="Left" Background="#FF005BCA">
+        <Grid x:Name="GridMenu"  Width="50" HorizontalAlignment="Left" Background="#9e0000">
 
             <StackPanel>
                 <Grid Height="150" Background="White"  >
