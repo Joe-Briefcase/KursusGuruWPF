@@ -1,4 +1,5 @@
 ﻿using KursusGuru.Data_Layer;
+using KursusGuru.Logic_Layer;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static KursusGuru.Data_Layer.User;
 
 namespace KursusGuru.Pages
 {
@@ -22,35 +24,32 @@ namespace KursusGuru.Pages
     /// </summary>
     public partial class BooksPage : Page
     {
-        public ObservableCollection<Course> Courses { get; set; }
+        public ObservableCollection<User_Course> Courses { get; set; }
+        private User User { get; }
         public BooksPage()
         {
             InitializeComponent();
-            // In production this method shouldn't be called (obviously :/)
-            PopulateForTesting();
+            User = LogicController.CurrentUser();
+            InitializeData();
+            mainGrid.DataContext = Courses;
+            userName.DataContext = User;
         }
-
-        private void PopulateForTesting() {
-            Courses = new ObservableCollection<Course>() {
-                new Course(
-                    1, "Swedish 101", new List<Book>(){
-                        new Book(1, "Böök", "John Bork", "501-6-20-501863-1")
-                    }
-                ),
-                new Course(
-                    2, "General Insanity", new List<Book>(){
-                        new Book(2, "Freestyle Your Way Trough Job Interviews", "Lil John", "385-6-11-123456-9"),
-                        new Book(3, "Learn Computer Architecture Through Breakdance", "Ole Wedel", "978-3-16-148410-0")
-                    }
-                ),
-                new Course(
-                    3, "Advanced Yelling", new List<Book>(){
-                        new Book(4, "AAAAAAAAAAARGH", "Ang Rey Gai", "483-9-13-405912-7"),
-                        new Book(5, "More AAAAAAAAAAARGH", "Ang Rey Gai", "607-1-22-530629-4"),
-                        new Book(6, "AAAAAAAAAAARGH Revisited", "Ang Rey Gai Jr.", "058-7-04-406919-6")
-                    }
-                )
-            };
+        private void InitializeData()
+        {
+            ObservableCollection<Courses> userCourses = new ObservableCollection<Courses>();
+            ObservableCollection<Book> userBooks = new ObservableCollection<Book>();
+            Courses = new ObservableCollection<User_Course>();
+            foreach (Book b in User.books)
+            {
+                userBooks.Add(b);
+            }
+            // User API does not provide any foreign key linking courses to assignment/books
+            // Until they do the User_Course objects cannot be created correctly.
+            // Therefore all courses contain all assignments/books
+            foreach (Courses c in User.courses)
+            {
+                Courses.Add(new User_Course(c.name, c.courseSummary, c.id, c.courseWeight, userBooks));
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using KursusGuru.Data_Layer;
+using static KursusGuru.Data_Layer.User;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursusGuru.Logic_Layer;
 
 namespace KursusGuru.Pages
 {
@@ -22,36 +24,32 @@ namespace KursusGuru.Pages
     /// </summary>
     public partial class AssignmentsPage : Page
     {
-        public ObservableCollection<Course> Courses { get; set; }
+        public ObservableCollection<User_Course> Courses { get; set; }
+        private User User { get; }
         public AssignmentsPage()
         {
             InitializeComponent();
-            PopulateForTesting();
+            User = LogicController.CurrentUser();
+            InitializeData();
+            mainGrid.DataContext = Courses;
+            userName.DataContext = User;
         }
-
-        private void PopulateForTesting()
+        private void InitializeData()
         {
-            Courses = new ObservableCollection<Course>()
+            ObservableCollection<Courses> userCourses = new ObservableCollection<Courses>();
+            ObservableCollection<Assignment> userAssignments = new ObservableCollection<Assignment>();
+            Courses = new ObservableCollection<User_Course>();
+            foreach (Assignment a in User.assignments)
             {
-                new Course(
-                    1, "Swedish 101", new List<Assignment>(){
-                        new Assignment(1, "Learn some Swedish", new DateTime())
-                    }
-                ),
-                new Course(
-                    2, "General Insanity", new List<Assignment>(){
-                        new Assignment(2, "Smash That Interview", new DateTime()),
-                        new Assignment(3, "Break it Down. Now.", new DateTime())
-                    }
-                ),
-                new Course(
-                    3, "Advanced Yelling", new List<Assignment>(){
-                        new Assignment(4, "Yell at Some Birds", new DateTime()),
-                        new Assignment(5, "Yell at Some Kinds", new DateTime()),
-                        new Assignment(6, "Yell at the Elderly", new DateTime())
-                    }
-                )
-            };
+                userAssignments.Add(a);
+            }
+            // User API does not provide any foreign key linking courses to assignment/books
+            // Until they do the User_Course objects cannot be created correctly.
+            // Therefore all courses contain all assignments/books
+            foreach (Courses c in User.courses)
+            {
+                Courses.Add(new User_Course(c.name, c.courseSummary, c.id, c.courseWeight, userAssignments));
+            }
         }
     }
 }
