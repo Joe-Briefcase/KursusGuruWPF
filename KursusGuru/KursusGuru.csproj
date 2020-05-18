@@ -74,8 +74,8 @@
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="scheduele.xaml.cs">
-      <DependentUpon>scheduele.xaml</DependentUpon>
+    <Compile Include="schedule.xaml.cs">
+      <DependentUpon>schedule.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -100,24 +100,24 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\AssignmentsPage.xaml">
+    <Page Include="AssignmentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\BooksPage.xaml">
+    <Page Include="BooksPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="scheduele.xaml">
+    <Page Include="schedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\AssignmentsPage.xaml.cs">
+    <Compile Include="AssignmentsPage.xaml.cs">
       <DependentUpon>AssignmentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\BooksPage.xaml.cs">
+    <Compile Include="BooksPage.xaml.cs">
       <DependentUpon>BooksPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -152,9 +152,7 @@
   <ItemGroup>
     <Resource Include="Assets\dtu-1-logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="schedule\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.80.0.3987.10600\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.80.0.3987.10600\build\Selenium.WebDriver.ChromeDriver.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

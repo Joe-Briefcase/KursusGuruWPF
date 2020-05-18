@@ -17,7 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static KursusGuru.Data_Layer.User;
 
-namespace KursusGuru.Pages
+namespace KursusGuru
 {
     /// <summary>
     /// Interaction logic for BooksPage.xaml
@@ -30,10 +30,11 @@ namespace KursusGuru.Pages
         {
             InitializeComponent();
             User = LogicController.CurrentUser();
-            InitializeData();
+            //InitializeData();
             mainGrid.DataContext = Courses;
             userName.DataContext = User;
         }
+        /*
         private void InitializeData()
         {
             ObservableCollection<Courses> userCourses = new ObservableCollection<Courses>();
@@ -51,5 +52,6 @@ namespace KursusGuru.Pages
                 Courses.Add(new User_Course(c.name, c.courseSummary, c.id, c.courseWeight, userBooks));
             }
         }
+        */
     }
 }

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WpfScheduler;
+//using WpfScheduler;
 
 namespace KursusGuru
 {
@@ -46,10 +46,10 @@ namespace KursusGuru
 
     }
 
-    public partial class scheduele : Page
+    public partial class schedule : Page
     {
         List<Insertdata> numbers = new List<Insertdata>();
-        public scheduele()
+        public schedule()
         {
             InitializeComponent();
             Insertdata newday = new Insertdata();
@@ -62,14 +62,6 @@ namespace KursusGuru
             numbers.Add(newday);
             numbers.Add(newday2);
             Calculate(numbers);
-
-
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         //method to generate the schedule

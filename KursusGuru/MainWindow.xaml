@@ -43,7 +43,7 @@
 
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
 
-                <TextBlock Name="UserId"  Text="s172943" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
+                <TextBlock Name="UserId"  Text="" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
                 
                 <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignCentres" StaysOpen="False" Foreground="White">
                     <StackPanel Width="150">
@@ -77,36 +77,39 @@
 
                 </Grid>
                 <ListView Foreground="White" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                    <ListViewItem Height="60"  >
+                    <ListViewItem x:Name="OversigtButton" Height="60" Selected="OversigtButton_Selected" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="ViewDashboard" Margin="5"  Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="oversigt"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
+                            <TextBlock Text="Oversigt"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60"  >
+                    <ListViewItem x:Name="AfleveringerButton" Height="60" Selected="AfleveringerButton_Selected" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Pencil" Margin="5" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="afleveringer"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
+                            <TextBlock Text="Afleveringer"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem x:Name="UpdateButton" Height="60" Selected="ListViewItem_Selected"  >
+                    <ListViewItem x:Name="SkemaButton" Height="60" Selected="Skema_Selected"  >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Schedule" Margin="5" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="skema"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
+                            <TextBlock Text="Skema"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
                         </StackPanel>
                     </ListViewItem>
 
-                    <ListViewItem Height="60"  >
+                    <ListViewItem x:Name="BooksButton" Height="60" Selected="BooksButton_Selected" >
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="School" Margin="5" Width="25" Height="25" VerticalAlignment="Center"/>
-                            <TextBlock Text="fag"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
+                            <TextBlock Text="Bøger"  VerticalAlignment="Center" Margin="20 10"></TextBlock>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
         <Frame Name="loginFrame" Source="login.xaml" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Frame Name="skemaFrame" Source="schedule.xaml" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Frame Name="afleveringerFrame" Source="AssignmentsPage.xaml" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Frame Name="booksFrame" Source="BooksPage.xaml" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

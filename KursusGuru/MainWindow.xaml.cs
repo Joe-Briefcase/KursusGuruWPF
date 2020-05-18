@@ -41,6 +41,10 @@ namespace KursusGuru
                 loginFrame.Visibility = Visibility.Visible;
             }
 
+            afleveringerFrame.Visibility = Visibility.Hidden;
+            booksFrame.Visibility = Visibility.Hidden;
+            skemaFrame.Visibility = Visibility.Hidden;
+
             // User dictionary initialiseres med nogle brugere
             User user1 = new User();
             user1.userName = "Teddy Roosevelt";
@@ -97,6 +101,35 @@ namespace KursusGuru
             UserId.Text = LogicController.CurrentUser().userName;
         }
 
+        private void Skema_Selected(object sender, RoutedEventArgs e)
+        {
+            afleveringerFrame.Visibility = Visibility.Hidden;
+            booksFrame.Visibility = Visibility.Hidden;
+            skemaFrame.Visibility = Visibility.Visible;
+        }
+
+        private void AfleveringerButton_Selected(object sender, RoutedEventArgs e)
+        {
+            afleveringerFrame.Visibility = Visibility.Visible;
+            booksFrame.Visibility = Visibility.Hidden;
+            skemaFrame.Visibility = Visibility.Hidden;
+        }
+
+        private void BooksButton_Selected(object sender, RoutedEventArgs e)
+        {
+            afleveringerFrame.Visibility = Visibility.Hidden;
+            booksFrame.Visibility = Visibility.Visible;
+            skemaFrame.Visibility = Visibility.Hidden;
+        }
+
+        private void OversigtButton_Selected(object sender, RoutedEventArgs e)
+        {
+            afleveringerFrame.Visibility = Visibility.Hidden;
+            booksFrame.Visibility = Visibility.Hidden;
+            skemaFrame.Visibility = Visibility.Hidden;
+        }
+
+        // Selenium
         private void ListViewItem_Selected(object sender, RoutedEventArgs e)
         {
             SeleniumLogin.SeleniumLoginInside("s" + LogicController.CurrentUser().id, LogicController.CurrentUser().password);
