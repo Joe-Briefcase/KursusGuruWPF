@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using KursusGuru.Logic_Layer;
 //using WpfScheduler;
 
 namespace KursusGuru
@@ -52,16 +53,6 @@ namespace KursusGuru
         public schedule()
         {
             InitializeComponent();
-            Insertdata newday = new Insertdata();
-            newday.Subject = "mathematics";
-            newday.Id = "earltuesday";
-
-            Insertdata newday2 = new Insertdata();
-            newday2.Subject = "pornography";
-            newday2.Id = "latefriday";
-            numbers.Add(newday);
-            numbers.Add(newday2);
-            Calculate(numbers);
         }
 
         //method to generate the schedule
@@ -83,7 +74,7 @@ namespace KursusGuru
 
                 //tirsdag 
 
-                if (numbers1[i].Id.Contains("earltuesday"))
+                if (numbers1[i].Id.Contains("earlytuesday"))
                 {
                     earltuesday.Content = numbers1[i].Subject;
                     earltuesday.Visibility = Visibility.Visible;
@@ -107,7 +98,7 @@ namespace KursusGuru
                     latewednesday.Visibility = Visibility.Visible;
                 }
 
-                //torsdat
+                //torsdag
 
                 if (numbers1[i].Id.Contains("earlythursday"))
                 {
@@ -135,9 +126,36 @@ namespace KursusGuru
                 }
 
             }
+        }
 
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Insertdata newday = new Insertdata();
+            newday.Subject = LogicController.CurrentUser().courses[0].name;
+            newday.Id = "earlymonday";
 
+            Insertdata newday2 = new Insertdata();
+            newday2.Subject = LogicController.CurrentUser().courses[1].name;
+            newday2.Id = "latemonday";
 
+            Insertdata newday3 = new Insertdata();
+            newday3.Subject = LogicController.CurrentUser().courses[2].name;
+            newday3.Id = "earlywednesday";
+
+            Insertdata newday4 = new Insertdata();
+            newday4.Subject = LogicController.CurrentUser().courses[3].name;
+            newday4.Id = "earlythursday";
+
+            Insertdata newday5 = new Insertdata();
+            newday5.Subject = LogicController.CurrentUser().courses[4].name;
+            newday5.Id = "latefriday";
+
+            numbers.Add(newday);
+            numbers.Add(newday2);
+            numbers.Add(newday3);
+            numbers.Add(newday4);
+            numbers.Add(newday5);
+            Calculate(numbers);
         }
     }
 }

@@ -46,21 +46,9 @@ namespace KursusGuru
             skemaFrame.Visibility = Visibility.Hidden;
 
             // User dictionary initialiseres med nogle brugere
-            User user1 = new User();
-            user1.userName = "Teddy Roosevelt";
-            user1.id = 183939;
-            User user2 = new User();
-            user2.userName = "Woodrow Wilson";
-            user2.id = 191747;
-            User user3 = new User();
-            user3.userName = "Abraham Lincoln";
-            user3.id = 182828;
             User userAdmin = new User();
             userAdmin.userName = "Ted Bundy";
             userAdmin.id = 185143;
-            DataController.SaveUserData(user1);
-            DataController.SaveUserData(user2);
-            DataController.SaveUserData(user3);
             DataController.SaveUserData(userAdmin);
         }
 
@@ -98,7 +86,8 @@ namespace KursusGuru
                 loginFrame.Visibility = Visibility.Visible;
             }
 
-            UserId.Text = LogicController.CurrentUser().userName;
+            UserId.Text = LogicController.CurrentUser().id.ToString();
+            LoadCourses(LogicController.CurrentUser());
         }
 
         private void Skema_Selected(object sender, RoutedEventArgs e)
@@ -130,14 +119,20 @@ namespace KursusGuru
         }
 
         // Selenium
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
+        private void LoadCourses(User user)
         {
+            int i = 0;
             SeleniumLogin.SeleniumLoginInside("s" + LogicController.CurrentUser().id, LogicController.CurrentUser().password);
             foreach (string course in SeleniumLogin.courses)
             {
                 Console.WriteLine(course);
+
+                user.courses[i] = new User.Courses();
+                user.courses[i].name = course;
+                i++;
             }
 
+            /*
             SeleniumLogin.SeleniumLoginLearn("s" + LogicController.CurrentUser().id, LogicController.CurrentUser().password);
             for (int course = 0; course < 0; course++)
             {
@@ -147,6 +142,7 @@ namespace KursusGuru
                     Console.WriteLine("LOL");
                 }
             }
+            */
         }
     }
 }

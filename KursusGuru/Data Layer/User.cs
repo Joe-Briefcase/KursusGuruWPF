@@ -8,7 +8,6 @@ namespace KursusGuru.Data_Layer
 {
     class User
     {
-        public Calender calender { set; get; }
         public string userName { set; get; }
         public int id { set; get; }
         public string password { set; get; }
@@ -16,10 +15,12 @@ namespace KursusGuru.Data_Layer
         public Book[] books { set; get; }
         public Courses[] courses { set; get; }
 
-        public class Calender
+        public User()
         {
-
+            this.courses = new Courses[5];
         }
+
+
         public class Assignment
         {
             public string name { set; get; }
@@ -37,6 +38,7 @@ namespace KursusGuru.Data_Layer
             public string courseSummary { set; get; }
             public int id { set; get; }
             public int courseWeight { set; get; }
+            public string time { set; get; }
         }
     }
 }
