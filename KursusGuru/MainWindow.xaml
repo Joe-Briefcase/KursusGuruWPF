@@ -44,7 +44,7 @@
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
 
                 <TextBlock Name="UserId"  Text="s172943" VerticalAlignment="Center" Foreground="White" FontSize="18"/>
-
+                
                 <materialDesign:PopupBox Margin="10" PlacementMode="BottomAndAlignCentres" StaysOpen="False" Foreground="White">
                     <StackPanel Width="150">
                         <Button Content="Settings"/>
