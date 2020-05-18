@@ -45,11 +45,42 @@ namespace KursusGuru
             booksFrame.Visibility = Visibility.Hidden;
             skemaFrame.Visibility = Visibility.Hidden;
 
-            // User dictionary initialiseres med nogle brugere
+            // Admin bruger
             User userAdmin = new User();
-            userAdmin.userName = "Ted Bundy";
+            userAdmin.userName = "Admin";
             userAdmin.id = 185143;
             DataController.SaveUserData(userAdmin);
+
+            // Test bruger
+            User testUser = new User();
+            testUser.userName = "Test";
+            testUser.id = 123456;
+            testUser.courses[0] = new User.Courses();
+            testUser.courses[0].name = "Indledende Programmering";
+            testUser.courses[0].time = "earlytuesday";
+            testUser.courses[1] = new User.Courses();
+            testUser.courses[1].name = "Datakommunikation";
+            testUser.courses[1].time = "latetuesday";
+            testUser.courses[2] = new User.Courses();
+            testUser.courses[2].name = "Test Metoder";
+            testUser.courses[2].time = "earlyfriday";
+            testUser.courses[3] = new User.Courses();
+            testUser.courses[3].name = "Diskret Matematik";
+            testUser.courses[3].time = "earlywednesday";
+            testUser.courses[4] = new User.Courses();
+            testUser.courses[4].name = "Udviklingsmetoder";
+            testUser.courses[4].time = "latemonday";
+            testUser.books[0] = new User.Book();
+            testUser.books[0].name = "Applying UML and Patterns";
+            testUser.books[0].author = "Larman";
+            testUser.books[1] = new User.Book();
+            testUser.books[1].name = "Professional C# and .NET Core 2.0";
+            testUser.books[1].author = "Nagel";
+            testUser.assignments[0] = new User.Assignment();
+            testUser.assignments[0].name = "Første Aflevering";
+            testUser.assignments[0].course = "Indledende Programmering";
+            testUser.assignments[0].deadline = new DateTime(2020, 6, 2);
+            DataController.SaveUserData(testUser);
         }
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
@@ -86,8 +117,11 @@ namespace KursusGuru
                 loginFrame.Visibility = Visibility.Visible;
             }
 
-            UserId.Text = LogicController.CurrentUser().id.ToString();
-            LoadCourses(LogicController.CurrentUser());
+            UserId.Text = "s" + LogicController.CurrentUser().id.ToString();
+            if (LogicController.CurrentUser().id != 123456)
+            {
+                LoadCourses(LogicController.CurrentUser());
+            }
         }
 
         private void Skema_Selected(object sender, RoutedEventArgs e)

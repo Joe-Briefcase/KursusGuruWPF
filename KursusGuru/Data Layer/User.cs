@@ -18,19 +18,21 @@ namespace KursusGuru.Data_Layer
         public User()
         {
             this.courses = new Courses[5];
+            this.books = new Book[10];
+            this.assignments = new Assignment[10];
         }
 
 
         public class Assignment
         {
             public string name { set; get; }
-            public string description { set; get; }
+            public string course { set; get; }
             public DateTime deadline { set; get; }
         }
         public class Book
         {
             public string name { set; get; }
-            public int length { set; get; }
+            public string author { set; get; }
         }
         public class Courses
         {

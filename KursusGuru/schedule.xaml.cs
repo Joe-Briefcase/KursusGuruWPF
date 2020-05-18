@@ -132,23 +132,23 @@ namespace KursusGuru
         {
             Insertdata newday = new Insertdata();
             newday.Subject = LogicController.CurrentUser().courses[0].name;
-            newday.Id = "earlymonday";
+            newday.Id = LogicController.CurrentUser().courses[0].time;
 
             Insertdata newday2 = new Insertdata();
             newday2.Subject = LogicController.CurrentUser().courses[1].name;
-            newday2.Id = "latemonday";
+            newday2.Id = LogicController.CurrentUser().courses[1].time;
 
             Insertdata newday3 = new Insertdata();
             newday3.Subject = LogicController.CurrentUser().courses[2].name;
-            newday3.Id = "earlywednesday";
+            newday3.Id = LogicController.CurrentUser().courses[2].time;
 
             Insertdata newday4 = new Insertdata();
             newday4.Subject = LogicController.CurrentUser().courses[3].name;
-            newday4.Id = "earlythursday";
+            newday4.Id = LogicController.CurrentUser().courses[3].time;
 
             Insertdata newday5 = new Insertdata();
             newday5.Subject = LogicController.CurrentUser().courses[4].name;
-            newday5.Id = "latefriday";
+            newday5.Id = LogicController.CurrentUser().courses[4].time;
 
             numbers.Add(newday);
             numbers.Add(newday2);
