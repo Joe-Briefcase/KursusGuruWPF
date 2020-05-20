@@ -76,10 +76,17 @@ namespace KursusGuru
             testUser.books[1] = new User.Book();
             testUser.books[1].name = "Professional C# and .NET Core 2.0";
             testUser.books[1].author = "Nagel";
+            testUser.books[2] = new User.Book();
+            testUser.books[2].name = "Diskret Mat Kursusnoter";
+            testUser.books[2].author = "Ukendt";
             testUser.assignments[0] = new User.Assignment();
             testUser.assignments[0].name = "Første Aflevering";
             testUser.assignments[0].course = "Indledende Programmering";
             testUser.assignments[0].deadline = new DateTime(2020, 6, 2);
+            testUser.assignments[1] = new User.Assignment();
+            testUser.assignments[1].name = "Ugentlig Aflevering";
+            testUser.assignments[1].course = "Diskret Mat";
+            testUser.assignments[1].deadline = new DateTime(2020, 6, 12);
             DataController.SaveUserData(testUser);
             testUser.InitializeUserCoursesData();
         }
