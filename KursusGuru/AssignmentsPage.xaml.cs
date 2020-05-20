@@ -24,14 +24,13 @@ namespace KursusGuru
     /// </summary>
     public partial class AssignmentsPage : Page
     {
-        public ObservableCollection<User_Course> Courses { get; set; }
         private User User { get; }
         public AssignmentsPage()
         {
             InitializeComponent();
             User = LogicController.CurrentUser();
             //InitializeData();
-            mainGrid.DataContext = Courses;
+            mainGrid.DataContext = User.User_Courses;
             userName.DataContext = User;
         }
         /*

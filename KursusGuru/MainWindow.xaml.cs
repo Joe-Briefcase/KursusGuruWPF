@@ -81,6 +81,7 @@ namespace KursusGuru
             testUser.assignments[0].course = "Indledende Programmering";
             testUser.assignments[0].deadline = new DateTime(2020, 6, 2);
             DataController.SaveUserData(testUser);
+            testUser.InitializeUserCoursesData();
         }
 
         private void ButtonPopUpLogout_Click(object sender, RoutedEventArgs e)
