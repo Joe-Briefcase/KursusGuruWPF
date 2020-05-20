@@ -33,24 +33,5 @@ namespace KursusGuru
             mainGrid.DataContext = User.User_Courses;
             userName.DataContext = User;
         }
-        /*
-        private void InitializeData()
-        {
-            ObservableCollection<Courses> userCourses = new ObservableCollection<Courses>();
-            ObservableCollection<Assignment> userAssignments = new ObservableCollection<Assignment>();
-            Courses = new ObservableCollection<User_Course>();
-            foreach (Assignment a in User.assignments)
-            {
-                userAssignments.Add(a);
-            }
-            // User API does not provide any foreign key linking courses to assignment/books
-            // Until they do the User_Course objects cannot be created correctly.
-            // Therefore all courses contain all assignments/books
-            foreach (Courses c in User.courses)
-            {
-                Courses.Add(new User_Course(c.name, c.courseSummary, c.id, c.courseWeight, userAssignments));
-            }
-        }
-        */
     }
 }

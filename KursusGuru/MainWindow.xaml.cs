@@ -166,18 +166,6 @@ namespace KursusGuru
                 user.courses[i].name = course;
                 i++;
             }
-
-            /*
-            SeleniumLogin.SeleniumLoginLearn("s" + LogicController.CurrentUser().id, LogicController.CurrentUser().password);
-            for (int course = 0; course < 0; course++)
-            {
-                for (int announcement = 0; announcement < 0; announcement++)
-                {
-                    Console.WriteLine(SeleniumLogin.announcements[course][announcement]);
-                    Console.WriteLine("LOL");
-                }
-            }
-            */
         }
     }
 }
