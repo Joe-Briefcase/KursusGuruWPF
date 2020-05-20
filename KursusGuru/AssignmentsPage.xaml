@@ -14,7 +14,7 @@
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Label >Assignments List for</Label>
+            <Label >Assignment List for</Label>
             <Label Name="userName" Grid.Row="0" Content="{Binding userName}"/>
         </StackPanel>
         <Grid Grid.Row="1" x:Name="mainGrid">
@@ -24,10 +24,22 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <Label Name="ChooseCourseLabel">Choose course:</Label>
-                <ComboBox Name="coursesBox" ItemsSource="{Binding}" DisplayMemberPath="Name"
-               IsSynchronizedWithCurrentItem="true"/>
+                <ComboBox Name="coursesBox" ItemsSource="{Binding}"
+               IsSynchronizedWithCurrentItem="true">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
             </StackPanel>
-            <ListBox Grid.Column="1" ItemsSource="{Binding Path=Assignments}" DisplayMemberPath="Name" IsSynchronizedWithCurrentItem="true"/>
+            <ListBox Grid.Column="1" ItemsSource="{Binding Path=Assignments}" IsSynchronizedWithCurrentItem="true">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </Grid>
 </Page>
